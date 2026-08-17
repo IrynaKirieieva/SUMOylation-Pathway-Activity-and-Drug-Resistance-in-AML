@@ -41,13 +41,19 @@ GO enrichment analysis of proteins associated with high E1 complex abundance rev
 Overall, our findings suggest that SUMO pathway components are associated with drug response in AML, but these associations are protein- and drug-specific rather than reflecting a uniform effect of increased or decreased SUMOylation. Individual proteins, particularly the E1 components SAE1 and UBA2, showed the most consistent associations with drug response, while E1 complex abundance was also associated with a distinct proteomic state characterized by changes in RNA processing, splicing, and ribosome biogenesis. The unexpected association between higher E1 abundance and Venetoclax sensitivity highlights that baseline protein abundance should not be interpreted as a direct measure of pathway activity and may instead reflect cellular states or dependencies that influence treatment response. These findings generate hypotheses about the role of SUMO pathway dependence in AML drug response and warrant further validation in functional experimental models.
 
 
+
+
 Data sources
 File	Source	Link
 
 CPTAC3_PTRC_PNNL_BEAT_AML_Proteome.tmt11.tsv	PDC000477, "Beat AML Baseline Clinical - Proteome"	Proteomic Data Commons link: https://biodev.github.io/BeatAML2/
+
 PDC_study_biospecimen_*.tsv	PDC000477 biospecimen export	Same study page as above, "Biospecimen" tab link: https://pdc.cancer.gov/pdc/study/PDC000477
+
 beataml_waves1to4_sample_mapping.xlsx	BeatAML2 harmonized data	github.com/biodev/beataml2.0_data link: https://biodev.github.io/BeatAML2/ 
+
 beataml_probit_curve_fits_v4_dbgap.txt	BeatAML2 drug AUC values	github.com/biodev/beataml2.0_data link: https://biodev.github.io/BeatAML2/
+
 beataml_wv1to4_clinical.xlsx	BeatAML2 clinical/mutation annotations	github.com/biodev/beataml2.0_data link: https://biodev.github.io/BeatAML2/
 
 
@@ -66,10 +72,15 @@ Repository structure:
 
 05_unsupervised_analysis.R — assess the global proteomic structure of E1 complex groups using PCA and exploratory UMAP.
 
+
+
 Requirements
 R >= 4.3, packages: tidyverse, data.table, readxl, limma, clusterProfiler, org.Hs.eg.db, uwot, ggrepel (see individual scripts for install commands).
+
 Proteomics-clinical linkage recovered 152/211 patients (72%); the remainder are absent from the harmonized BeatAML sample mapping release, not a processing error (see 01_data_preparation.R for the diagnostic).
+
 All expression values are relative to an in-cohort reference pool, not a healthy control — findings describe inter-patient variability within AML, not AML-vs-healthy differences.
+
 Composite/subgroup scores are z-score averages across genes annotated by canonical pathway role; empirically, not every gene's behavior matched its canonical role (e.g. RANBP2 trended with deconjugases despite being an E3 ligase) — see 02_pathway_scores.R for the gene-level breakdown that motivated this.
 
 
