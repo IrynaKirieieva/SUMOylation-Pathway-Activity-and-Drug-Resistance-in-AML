@@ -43,17 +43,27 @@ Overall, our findings suggest that SUMO pathway components are associated with d
 
 Data sources
 File	Source	Link
+
 CPTAC3_PTRC_PNNL_BEAT_AML_Proteome.tmt11.tsv	PDC000477, "Beat AML Baseline Clinical - Proteome"	Proteomic Data Commons link: https://biodev.github.io/BeatAML2/
 PDC_study_biospecimen_*.tsv	PDC000477 biospecimen export	Same study page as above, "Biospecimen" tab link: https://pdc.cancer.gov/pdc/study/PDC000477
 beataml_waves1to4_sample_mapping.xlsx	BeatAML2 harmonized data	github.com/biodev/beataml2.0_data link: https://biodev.github.io/BeatAML2/ 
 beataml_probit_curve_fits_v4_dbgap.txt	BeatAML2 drug AUC values	github.com/biodev/beataml2.0_data link: https://biodev.github.io/BeatAML2/
 beataml_wv1to4_clinical.xlsx	BeatAML2 clinical/mutation annotations	github.com/biodev/beataml2.0_data link: https://biodev.github.io/BeatAML2/
 
+
+
+
+
 Repository structure:
+
 01_data_preparation.R — load proteomics, clinical, and drug-response data; resolve sample IDs between PDC and BeatAML; filter unmatched samples; construct the merged proteomics–drug-response dataset.
+
 02_pathway_scores.R — calculate SUMO pathway scores, including composite, SUMOylation, deSUMOylation, net SUMO, and E1 complex (SAE1 + UBA2) scores; perform pathway-level and gene-level correlations with drug AUC; identify key gene–drug associations; evaluate the E1 complex as the primary downstream score and generate corresponding drug-association plots.
+
 03_subtype_stratification.R — stratify E1 complex–drug associations by NPM1 and FLT3-ITD mutation status; handle discordant mutation records; calculate subgroup-specific Spearman correlations; formally test differences between subgroup correlations using Fisher’s z-transformation.
+
 04_dea_enrichment.R — define high- and low-E1-complex groups; perform genome-wide differential protein abundance analysis using limma; generate volcano plots; perform GO Biological Process GSEA to identify biological processes associated with E1 complex activity.
+
 05_unsupervised_analysis.R — assess the global proteomic structure of E1 complex groups using PCA and exploratory UMAP.
 
 Requirements
