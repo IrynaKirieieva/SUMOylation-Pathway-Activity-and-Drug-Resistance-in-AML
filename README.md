@@ -74,7 +74,11 @@ Repository structure:
 
 
 
+
+
+
 Requirements
+
 R >= 4.3, packages: tidyverse, data.table, readxl, limma, clusterProfiler, org.Hs.eg.db, uwot, ggrepel (see individual scripts for install commands).
 
 Proteomics-clinical linkage recovered 152/211 patients (72%); the remainder are absent from the harmonized BeatAML sample mapping release, not a processing error (see 01_data_preparation.R for the diagnostic).
